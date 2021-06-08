@@ -1,0 +1,14 @@
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\obj\Debug\netcoreapp3.1\FileApiExample.AssemblyInfoInputs.cache
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\obj\Debug\netcoreapp3.1\FileApiExample.AssemblyInfo.cs
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\obj\Debug\netcoreapp3.1\FileApiExample.csproj.CoreCompileInputs.cache
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\bin\Debug\netcoreapp3.1\FileApiExample.exe
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\bin\Debug\netcoreapp3.1\FileApiExample.deps.json
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\bin\Debug\netcoreapp3.1\FileApiExample.runtimeconfig.json
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\bin\Debug\netcoreapp3.1\FileApiExample.runtimeconfig.dev.json
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\bin\Debug\netcoreapp3.1\FileApiExample.dll
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\bin\Debug\netcoreapp3.1\FileApiExample.pdb
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\obj\Debug\netcoreapp3.1\FileApiExample.csproj.CopyComplete
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\obj\Debug\netcoreapp3.1\FileApiExample.dll
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\obj\Debug\netcoreapp3.1\FileApiExample.pdb
+C:\Users\pgeurts\source\repos\PADS4\Api-Samples\FileApiExample\FileApiExample\obj\Debug\netcoreapp3.1\FileApiExample.genruntimeconfig.cache
