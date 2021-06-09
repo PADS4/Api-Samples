@@ -4,13 +4,13 @@ using System.Text;
 
 namespace FileApiExample.RequestContentModels
 {
-    class DeleteFolderContent
+    class DeleteFileContent
     {
-        public DeleteAction[] DeleteActions { get; set; }
-        public bool Async { get; set; }
+        public DeleteFileAction[] DeleteActions { get; set; }
     }
-    class DeleteAction
+    class DeleteFileAction
     {
+        public string File { get; set; }
         public string Folder { get; set; }
     }
 }

@@ -2,10 +2,10 @@
 {
     class MoveFolderContent
     {
-        public MoveAction[] MoveActions { get; set; }
+        public MoveFolderAction[] MoveActions { get; set; }
         public bool Async { get; set; }
     }
-    class MoveAction
+    class MoveFolderAction
     {
         public string Folder { get; set; }
         public string Destination { get; set; }
