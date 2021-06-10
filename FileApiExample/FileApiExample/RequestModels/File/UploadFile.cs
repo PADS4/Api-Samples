@@ -6,4 +6,10 @@ namespace FileApiExample.RequestContentModels.File
     {
         public MultipartFormDataContent file { get; set; }
     }
+    class UploadFileResponse
+    {
+        public bool Succeeded { get; set; }
+        public string Message { get; set; }
+        public string Code { get; set; }
+    }
 }
