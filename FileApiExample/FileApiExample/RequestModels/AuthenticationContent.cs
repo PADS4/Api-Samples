@@ -17,7 +17,7 @@
     {
         public string Name { get; set; }
         public string Value { get; set; }
-        public AccessDescriptor[]? AccessDescriptors { get; set; }
+        public AccessDescriptor[] AccessDescriptors { get; set; }
     }
     class AccessDescriptor
     {

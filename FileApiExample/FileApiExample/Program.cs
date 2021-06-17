@@ -22,15 +22,6 @@ namespace FileApiExample
             var uploadFileObject = fai.UploadFile(".\\Assets\\slipper.png").Result;
             Console.WriteLine(uploadFileObject);
             Console.WriteLine("FILE UPLOADED");
-            //var moveFileObject = fai.MoveFolder("TestFolder").Result;
-            //Console.WriteLine(moveFileObject);
-            //Console.WriteLine("FILE MOVED");
-            //var deleteFileObject = fai.DeleteFile("slipper.png").Result;
-            //Console.WriteLine(deleteFileObject);
-            //Console.WriteLine("FILE DELETED");
-            //var deleteFolderObject = fai.DeleteFolder("TestFolder").Result;
-            //Console.WriteLine(deleteFolderObject);
-            //Console.WriteLine("FOLDER DELETED");
             Console.WriteLine("Done");
         }
     }
