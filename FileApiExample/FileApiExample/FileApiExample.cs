@@ -21,14 +21,15 @@ namespace FileApiExample
         private readonly HttpClient httpClient = new HttpClient();
         private string Url = "http://localhost:81/";
 
-        public async Task<string> Authenticate()
+        public async Task<string> Authenticate(string user, string password, string domain, string url)
         {
+            Url = url;
             string authUrl = Url + "rdx/NDS.Services.Authentication/api/v1/Account/Logon";
             AuthenticationContent authContent = new AuthenticationContent
             {
-                Password = "user1",
-                Username = "user1",
-                Domain = "pads"
+                Username = user,
+                Password = password,
+                Domain = domain
             };
 
             var authRequest = new HttpRequestMessage
@@ -50,7 +51,7 @@ namespace FileApiExample
         }
 
         #region Folder
-        public async Task<string> GetFolder(string folderName)
+        public async Task<string> GetFolder(string folderName, int startPage, int items, string searchPattern)
         {
             var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/folder";
 
@@ -58,11 +59,11 @@ namespace FileApiExample
             {
                 Path = folderName,
                 IncludeHidden = true,
-                SearchPattern = "",
+                SearchPattern = searchPattern,
                 Paging = new paging
                 {
-                    Start = 0,
-                    Items = 10
+                    Start = startPage,
+                    Items = items
                 },
                 Sorting = new sorting
                 {
@@ -81,15 +82,15 @@ namespace FileApiExample
             return response.TotalItems.ToString() + " items in the chosen folder";
         }
 
-        public async Task<string> CreateFolder(string folderName)
+        public async Task<string> CreateFolder(string folderName, string parentFolder, bool isHidden)
         {
             var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/createFolder";
 
             CreateFolderContent folderContent = new CreateFolderContent
             {
-                ParentFolder = "\\",
+                ParentFolder = parentFolder,
                 Name = folderName,
-                Hidden = false
+                Hidden = isHidden
             };
 
             var request = new HttpRequestMessage
@@ -110,7 +111,7 @@ namespace FileApiExample
             }
         }
 
-        public async Task<string> MoveFolder(string folderDestination)
+        public async Task<string> MoveFolder(string folder, string folderDestination)
         {
             var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/moveFolder";
 
@@ -118,7 +119,7 @@ namespace FileApiExample
             {
                 MoveActions = new MoveFolderAction[1].Select(httpClient => new MoveFolderAction
                 {
-                    Folder = "TestFolder",
+                    Folder = folder,
                     Destination = folderDestination,
                     Force = true
                 }).ToArray(),
@@ -176,18 +177,18 @@ namespace FileApiExample
         #endregion
 
         #region File
-        public async Task<string> UploadFile(string fileName)
+        public async Task<string> UploadFile(string file, string name, string fileName)
         {
             var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/uploadFile";
-            var fileStream = new FileStream(fileName, FileMode.Open);
+            var fileStream = new FileStream(file, FileMode.Open);
             MultipartFormDataContent dataContent = new MultipartFormDataContent();
             HttpContent content = new StreamContent(fileStream);
             content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
             {
-                Name = "slipper",
-                FileName = "slipper.png"
+                Name = name,
+                FileName = fileName
             };
-            dataContent.Add(content, "slipper");
+            dataContent.Add(content, name);
             UploadFileContent folderContent = new UploadFileContent
             {
                 file = dataContent
@@ -210,7 +211,7 @@ namespace FileApiExample
             }
         }
 
-        public async Task<string> MoveFile(string folderDestination)
+        public async Task<string> MoveFile(string fileName, string folder, string folderDestination, string destinationFileName)
         {
             var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/moveFolder";
 
@@ -218,10 +219,10 @@ namespace FileApiExample
             {
                 MoveActions = new MoveFileAction[1].Select(httpClient => new MoveFileAction
                 {
-                    Folder = "",
-                    File = "slipper.png",
+                    Folder = folder,
+                    File = fileName,
                     DestinationFolder = folderDestination,
-                    DestinationFileName = "slipper.png",
+                    DestinationFileName = destinationFileName,
                     Force = true
                 }).ToArray()
             };
@@ -244,7 +245,7 @@ namespace FileApiExample
             }
         }
 
-        public async Task<string> DeleteFile(string fileName)
+        public async Task<string> DeleteFile(string fileName, string folder)
         {
             var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/deleteFolder";
 
@@ -253,7 +254,7 @@ namespace FileApiExample
                 DeleteActions = new DeleteFileAction[1].Select(h => new DeleteFileAction
                 {
                     File = fileName,
-                    Folder = "TestFolder2"
+                    Folder = folder
                 }).ToArray()
             };
 
