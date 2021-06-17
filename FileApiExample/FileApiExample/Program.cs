@@ -10,12 +10,12 @@ namespace FileApiExample
             var authObject = fai.Authenticate().Result;
             Console.WriteLine(authObject);
             Console.WriteLine("AUTHENTICATED");
-            var folderObject = fai.GetFolder("upload_files").Result;
-            Console.WriteLine(folderObject);
             Console.WriteLine("FOLDER GOTTEN");
             var newFolderObject = fai.CreateFolder("TestFolder").Result;
             Console.WriteLine(newFolderObject);
             Console.WriteLine("FOLDER CREATED");
+            var folderObject = fai.GetFolder("TestFolder").Result;
+            Console.WriteLine(folderObject);
             var moveFolderObject = fai.MoveFolder("\\").Result;
             Console.WriteLine(moveFolderObject);
             Console.WriteLine("FOLDER MOVED");
