@@ -87,7 +87,7 @@ namespace FileApiExample
 
             CreateFolderContent folderContent = new CreateFolderContent
             {
-                ParentFolder = "preview",
+                ParentFolder = "\\",
                 Name = folderName,
                 Hidden = false
             };
@@ -118,7 +118,7 @@ namespace FileApiExample
             {
                 MoveActions = new MoveFolderAction[1].Select(httpClient => new MoveFolderAction
                 {
-                    Folder = "preview/TestFolder",
+                    Folder = "TestFolder",
                     Destination = folderDestination,
                     Force = true
                 }).ToArray(),
@@ -253,7 +253,7 @@ namespace FileApiExample
                 DeleteActions = new DeleteFileAction[1].Select(h => new DeleteFileAction
                 {
                     File = fileName,
-                    Folder = "TestFolder"
+                    Folder = "TestFolder2"
                 }).ToArray()
             };
 
