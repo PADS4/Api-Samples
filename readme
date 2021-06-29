@@ -1,1 +1,3 @@
-dit is een test
+This repository contains examples on the use of the pads4 rest apis. The examples are written in c# but can be used by any programming language that has http and json support. 
+
+For detailed documentation of the pads4 api you can access our swagger api specification. See you pads4 documenation on how to access this.
