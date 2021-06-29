@@ -1,4 +1,4 @@
-﻿namespace FileApiExample
+﻿namespace ContentApiExample
 {
     class AuthenticationContent
     {

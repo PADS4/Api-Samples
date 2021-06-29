@@ -1,22 +1,22 @@
-﻿namespace FileApiExample.RequestContentModels
+﻿namespace ContentApiExample.RequestContentModels
 {
-    class DeleteFileContent
+    class DeleteFolderContent
     {
-        public DeleteFileAction[] DeleteActions { get; set; }
+        public DeleteFolderAction[] DeleteActions { get; set; }
+        public bool Async { get; set; }
     }
-    class DeleteFileAction
+    class DeleteFolderAction
     {
-        public string File { get; set; }
         public string Folder { get; set; }
     }
-    class DeleteFileResponse
+    class DeleteFolderResponse
     {
         public bool Succeeded { get; set; }
         public string Message { get; set; }
         public string Code { get; set; }
-        public DeleteResult[] Results { get; set; }
+        public DeleteFolderResult[] Results { get; set; }
     }
-    class DeleteResult
+    class DeleteFolderResult
     {
         public bool Succeeded { get; set; }
         public string Message { get; set; }

@@ -1,5 +1,5 @@
-﻿using FileApiExample.RequestContentModels;
-using FileApiExample.RequestContentModels.File;
+﻿using ContentApiExample.RequestContentModels;
+using ContentApiExample.RequestContentModels.File;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,9 +14,9 @@ using System.Threading.Tasks;
 // http://<PADS4 IP>:<PADS4 PORT>/rdx/NDS.Services.Authentication/swagger/index.html#/
 // http://<PADS4 IP>:<PADS4 PORT>/rdx/NDS.Services.Content/swagger/index.html#/
 
-namespace FileApiExample
+namespace ContentApiExample
 {
-    class FileApiExample
+    class ContentApiExample
     {
         private readonly HttpClient httpClient = new HttpClient();
         private string Url = "http://localhost:81/";

@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace FileApiExample
+namespace ContentApiExample
 {
     class Program
     {
         static void Main()
         {
-            FileApiExample fai = new FileApiExample();
+            ContentApiExample fai = new ContentApiExample();
             var authObject = fai.Authenticate("user1", "user1", "pads", "http://localhost:81/").Result;
             Console.WriteLine(authObject);
             Console.WriteLine("AUTHENTICATED");

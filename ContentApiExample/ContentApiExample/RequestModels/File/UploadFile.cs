@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace FileApiExample.RequestContentModels.File
+namespace ContentApiExample.RequestContentModels.File
 {
     class UploadFileContent
     {
