@@ -1,4 +1,4 @@
-﻿namespace FileApiExample.RequestContentModels
+﻿namespace ContentApiExample.RequestContentModels
 {
     class MoveFileContent
     {

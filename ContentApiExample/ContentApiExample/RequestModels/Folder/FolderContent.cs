@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FileApiExample
+namespace ContentApiExample
 {
     class FolderContent
     {
