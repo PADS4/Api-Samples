@@ -46,7 +46,7 @@ namespace FileApiExample
             }
             else
             {
-                return "unable to create Folder";
+                return "unable to Authenticate: " + response.Message;
             }
         }
 
@@ -107,7 +107,7 @@ namespace FileApiExample
             }
             else
             {
-                return "unable to create Folder";
+                return "unable to create Folder: " + response.Message;
             }
         }
 
@@ -140,7 +140,7 @@ namespace FileApiExample
             }
             else
             {
-                return "unable to move Folder";
+                return "unable to move Folder: " + response.Message;
             }
         }
 
@@ -171,7 +171,7 @@ namespace FileApiExample
             }
             else
             {
-                return "unable to delete Folder";
+                return "unable to delete Folder: " + response.Message;
             }
         }
         #endregion
@@ -207,7 +207,7 @@ namespace FileApiExample
             }
             else
             {
-                return "unable to upload File";
+                return "unable to upload File: " + response.Message;
             }
         }
 
@@ -241,7 +241,7 @@ namespace FileApiExample
             }
             else
             {
-                return "unable to move File";
+                return "unable to move File: " + response.Message;
             }
         }
 
@@ -272,7 +272,7 @@ namespace FileApiExample
             }
             else
             {
-                return "unable to delete File";
+                return "unable to delete File: " + response.Message;
             }
         }
         #endregion
