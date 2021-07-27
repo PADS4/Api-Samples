@@ -19,7 +19,7 @@ namespace ContentApiExample
     class ContentApiExample
     {
         private readonly HttpClient httpClient = new HttpClient();
-        private string Url = "http://localhost:81/";
+        private string Url = "";
 
         public async Task<string> Authenticate(string user, string password, string domain, string url)
         {
@@ -177,43 +177,38 @@ namespace ContentApiExample
         #endregion
 
         #region File
-        public async Task<string> UploadFile(string file, string name, string fileName)
+        public async Task<string> UploadFile(string file, string filePath)
         {
-            var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/uploadFile";
-            var fileStream = new FileStream(file, FileMode.Open);
-            MultipartFormDataContent dataContent = new MultipartFormDataContent();
-            HttpContent content = new StreamContent(fileStream);
-            content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
-            {
-                Name = name,
-                FileName = fileName
-            };
-            dataContent.Add(content, name);
-            UploadFileContent folderContent = new UploadFileContent
-            {
-                file = dataContent
-            };
+            var fileUrl = Url + "rdx/NDS.Services.Content/api/v1/content/uploadFile";
+            var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read);
+
+            byte[] fileData = new byte[fileStream.Length];
+            fileStream.Read(fileData, 0, fileData.Length);
+            fileStream.Close();
+            MultipartFormDataContent formData = new MultipartFormDataContent("ditiseenuniekestring" + DateTime.Now.ToString());
+            formData.Add(new ByteArrayContent(fileData, 0, fileData.Length), "file", filePath);
+            
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri(folderUrl),
-                Content = folderContent.file
+                RequestUri = new Uri(fileUrl),
+                Content = formData
             };
             JObject jResponse = await PostRequest(request);
             UploadFileResponse response = jResponse.ToObject<UploadFileResponse>();
             if (response.Succeeded)
             {
-                return response.Message;
+                return response.Code;
             }
             else
             {
-                return "unable to upload File: " + response.Message;
+                return "unable to upload File: " + response.Code;
             }
         }
 
         public async Task<string> MoveFile(string fileName, string folder, string folderDestination, string destinationFileName)
         {
-            var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/moveFolder";
+            var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/moveFile";
 
             MoveFileContent folderContent = new MoveFileContent
             {
@@ -247,7 +242,7 @@ namespace ContentApiExample
 
         public async Task<string> DeleteFile(string fileName, string folder)
         {
-            var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/deleteFolder";
+            var folderUrl = Url + "rdx/NDS.Services.Content/api/v1/content/deleteFile";
 
             DeleteFileContent folderContent = new DeleteFileContent
             {
