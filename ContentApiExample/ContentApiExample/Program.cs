@@ -7,6 +7,8 @@ namespace ContentApiExample
         static void Main()
         {
             ContentApiExample fai = new ContentApiExample();
+            // note this authObject is not used. Subsequent authentication happens through a cookie 
+            // .PadsNg.AuthCookie=CfDJ8L9FpNr4B5JPjF….YSVTHrwKfbUZIUQ4VKMI
             var authObject = fai.Authenticate("user1", "user1", "pads", "http://localhost:81/").Result;
             Console.WriteLine(authObject);
             Console.WriteLine("AUTHENTICATED");
